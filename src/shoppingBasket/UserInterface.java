@@ -13,11 +13,9 @@ public class UserInterface {
 	public static void main(String args[]) {
 		
 		ShoppingBasket basket = new ShoppingBasket();
+		Checkout checkout = new Checkout(basket);
 		
 		JFrame frame = createFrame();
-    
-		Container container = frame.getContentPane();
-		container.setLayout(new BorderLayout());
         
 		JTable table = createGrid(basket);
 		
@@ -27,25 +25,33 @@ public class UserInterface {
 		
 		JPanel addPanel = createPanel();
 		
-		JButton checkout = createCheckoutButton(table, basket);
+		JButton goToCheckout = createCheckoutButton(table, basket);
 		
-		JButton addToBasket = createAddButton(table, basket, checkout);
-		
+		JButton addToBasket = createAddButton(table, basket, goToCheckout);
 		
 		tablePanel.add(clear);
 		
 		addPanel.add(addToBasket);
-		addPanel.add(checkout);
+		addPanel.add(goToCheckout);
 		
-		
-		container.add(table.getTableHeader(), BorderLayout.NORTH);
-		container.add(table, BorderLayout.CENTER);
-		container.add(tablePanel, BorderLayout.SOUTH);
-		container.add(addPanel, BorderLayout.EAST);
+		createContainer(frame, table, tablePanel, addPanel);
 		
 		frame.setVisible(true);
 		
 		
+	}
+	
+	private static void createCheckoutScreen(ShoppingBasket basket, Checkout checkout) {
+		JFrame frame = createFrame();
+	}
+
+	private static void createContainer(JFrame frame, JTable table, JPanel tablePanel, JPanel addPanel) {
+		Container container = frame.getContentPane();
+		container.setLayout(new BorderLayout());
+		container.add(table.getTableHeader(), BorderLayout.NORTH);
+		container.add(table, BorderLayout.CENTER);
+		container.add(tablePanel, BorderLayout.SOUTH);
+		container.add(addPanel, BorderLayout.EAST);
 	}
 
 	private static JPanel createPanel() {
