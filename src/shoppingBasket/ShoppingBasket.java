@@ -4,10 +4,15 @@ import java.util.ArrayList;
 
 public class ShoppingBasket {
 	
-	protected static ArrayList<Product> catalog = new ArrayList<Product>();
-	protected static ArrayList<Promotion> promotion = new ArrayList<Promotion>();
+	protected ArrayList<Product> catalog = new ArrayList<Product>();
+	protected ArrayList<Promotion> promotion = new ArrayList<Promotion>();
+	protected ArrayList<Product> basket = new ArrayList<Product>();
+	
+	ShoppingBasket() {
+		createCatalog();
+	}
 
-	public void createCatalog(String[] args) {
+	public void createCatalog() {
 		
 		Product banana = new Banana();
 		catalog.add(banana);

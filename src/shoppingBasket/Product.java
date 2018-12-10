@@ -1,5 +1,7 @@
 package shoppingBasket;
 
+import java.text.DecimalFormat;
+
 public class Product {
 	
 	private String name;
@@ -14,6 +16,7 @@ public class Product {
 		this.name = name;
 	}
 	public double getPrice() {
+		
 		return price;
 	}
 	public void setPrice(double price) {
